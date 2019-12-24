@@ -1,2 +1,2 @@
 # Cryptik
-## An encryption library for C++.
+## A simple encryption library for C++.
