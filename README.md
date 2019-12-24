@@ -1,2 +1,2 @@
 # Cryptik
-A encryption algorithm implemented in C++.
+## An encryption library for C++.
