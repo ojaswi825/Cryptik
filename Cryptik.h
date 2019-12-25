@@ -4,6 +4,8 @@
 #include<iostream>
 #include<string>
 #include<unordered_map>
+#include<thread>
+#include<chrono>
 
 class Cryptik {
     //cryptik main class
@@ -18,9 +20,10 @@ class Cryptik {
             std::string hashedString;              //result of hashing
 
             Crypt(std::string originalString, std::string salt, std::string hashed);              
-        };
+        };   
 
-        std::unordered_map<std::string, struct Crypt>  encryptionTable;   //a map to store generated hashed value to info of string.
+        long wait;
+        std::unordered_map<std::string, struct Crypt>  encryptionTable;   //a map to store generated hashed value to info of string.     
 
         std::string getSalt();
         std::string getHash(std::string compositeString);
@@ -29,6 +32,7 @@ class Cryptik {
 
     public:
 
+        Cryptik(float delay=0.5f);
         std::string encrypt(std::string originalString);
         bool compare(std::string hashedString, std::string originalString) ;
 };

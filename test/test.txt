@@ -41,6 +41,7 @@ how to link library:
 
 g++ -c Cryptik.cpp
 ar rs libCryptik.a Cryptik.o
-g++ demo demo.o libCryptik.a
+g++ -c demo.cpp
+g++ -o demo demo.o libCryptik.a
 
 

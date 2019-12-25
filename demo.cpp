@@ -3,7 +3,7 @@
 
 int main(void) {
 
-    Cryptik Cr;
+    Cryptik Cr(2.5f); //seconds for comaparision delay
 
     std::string hash = Cr.encrypt("ojaswi");
     

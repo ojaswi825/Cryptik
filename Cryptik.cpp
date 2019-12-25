@@ -1,6 +1,11 @@
 //includes
 #include"Cryptik.h"
 
+Cryptik::Cryptik(float delay) {
+
+    this->wait = delay*1000000000;
+}
+
 Cryptik::Crypt::Crypt(std::string originalString, std::string salt, std::string hashed) {
 
     this->originalString = originalString;
@@ -90,6 +95,8 @@ bool Cryptik::compare(std::string hashedString, std::string originalString) {
         else {
             std::string compositeString = originalString + hashInfo.salt;
             std::string newHashString = getHash(compositeString);
+
+            std::this_thread::sleep_for(std::chrono::nanoseconds(this->wait));
 
             if (newHashString == hashedString) {
                 return true;
