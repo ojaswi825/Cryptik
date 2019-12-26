@@ -12,7 +12,7 @@ class Cryptik {
 
     private:
 
-        struct Crypt {
+        typedef struct Crypt {
             //Cryptic info of string
 
             std::string originalString;      //the original string
@@ -20,7 +20,7 @@ class Cryptik {
             std::string hashedString;              //result of hashing
 
             Crypt(std::string originalString, std::string salt, std::string hashed);              
-        };   
+        } crypt;   
 
         long wait;
         std::unordered_map<std::string, struct Crypt>  encryptionTable;   //a map to store generated hashed value to info of string.     

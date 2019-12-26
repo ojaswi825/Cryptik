@@ -45,7 +45,7 @@ std::string Cryptik::getHash(std::string compositeString) {
     return hashedString;
 }
 
-void Cryptik::mapEncryption(std::string hashedString, Crypt info) {
+void Cryptik::mapEncryption(std::string hashedString, crypt info) {
     //adds the encryption details to encryptionTable map<string, struct Cryptic>
 
     encryptionTable.insert({hashedString, info});
@@ -93,12 +93,12 @@ bool Cryptik::compare(std::string hashedString, std::string originalString) {
         }
 
         else {
-            std::string compositeString = originalString + hashInfo.salt;
-            std::string newHashString = getHash(compositeString);
+
+            Cryptik::Crypt info = (encryptionTable.find(hashedString))->second;
 
             std::this_thread::sleep_for(std::chrono::nanoseconds(this->wait));
 
-            if (newHashString == hashedString) {
+            if (info.originalString == originalString) {
                 return true;
             }
 
